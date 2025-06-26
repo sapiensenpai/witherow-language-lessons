@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +15,11 @@ export const ServicesOverview = () => {
       title: "A-Level English",
       description: "Advanced English tutoring covering literature analysis, critical thinking, and sophisticated writing skills for A-Level success.",
       features: ["Literary criticism", "Advanced analysis", "Essay writing", "Comparative studies"]
+    },
+    {
+      title: "Common Entrance English",
+      description: "Specialized preparation for Common Entrance English examinations, building fundamental skills for independent school entry.",
+      features: ["Grammar foundations", "Reading comprehension", "Creative writing", "Spelling & vocabulary"]
     },
     {
       title: "GCSE French",

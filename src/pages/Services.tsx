@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +7,48 @@ const Services = () => {
   const navigate = useNavigate();
 
   const services = [
+    {
+      title: "GCSE English",
+      description: "Comprehensive preparation for GCSE English Language and Literature examinations with personalized attention to all key skills.",
+      features: [
+        "Text analysis and interpretation",
+        "Creative writing development",
+        "Essay structure and planning",
+        "Reading comprehension skills",
+        "Grammar and language techniques",
+        "Past paper practice and exam techniques",
+        "Literature study and character analysis"
+      ],
+      benefits: "Perfect for students aiming for grades 7-9 in GCSE English"
+    },
+    {
+      title: "A-Level English",
+      description: "Advanced English tutoring covering literature analysis, critical thinking, and sophisticated writing skills for A-Level excellence.",
+      features: [
+        "Literary criticism and analysis",
+        "Advanced essay writing techniques",
+        "Comparative literature studies",
+        "Critical theory application",
+        "Independent research skills",
+        "Exam preparation strategies",
+        "Coursework guidance and support"
+      ],
+      benefits: "Designed for students targeting A*-B grades in A-Level English"
+    },
+    {
+      title: "Common Entrance English",
+      description: "Specialized preparation for Common Entrance English examinations, building essential skills for independent school entry.",
+      features: [
+        "Grammar foundations and application",
+        "Reading comprehension strategies",
+        "Creative writing skills development",
+        "Spelling and vocabulary expansion",
+        "Punctuation and sentence structure",
+        "Poetry analysis and appreciation",
+        "Exam technique and confidence building"
+      ],
+      benefits: "Ideal for students preparing for independent school entrance at 11+ or 13+"
+    },
     {
       title: "GCSE French",
       description: "Comprehensive preparation for GCSE French examinations with personalized attention to all four language skills.",
@@ -73,7 +114,7 @@ const Services = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Services & Pricing</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-            Professional French and German tutoring services tailored to GCSE and A-Level success
+            Professional English, French and German tutoring services tailored to GCSE, A-Level, and Common Entrance success
           </p>
           <div className="bg-yellow-500 text-black px-8 py-4 rounded-lg inline-block">
             <span className="text-3xl font-bold">£50 per hour</span>
@@ -158,8 +199,8 @@ const Services = () => {
               
               <Card className="text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl font-bold text-blue-900 mb-2">KS3-A Level</div>
-                  <p className="text-gray-600">All Levels Covered</p>
+                  <div className="text-4xl font-bold text-blue-900 mb-2">All Levels</div>
+                  <p className="text-gray-600">Common Entrance to A-Level</p>
                 </CardContent>
               </Card>
             </div>
