@@ -29,10 +29,15 @@ const Booking = () => {
   ];
 
   const subjects = [
+    { value: "gcse-english", label: "GCSE English" },
+    { value: "alevel-english", label: "A-Level English" },
+    { value: "common-entrance-english", label: "Common Entrance English" },
     { value: "gcse-french", label: "GCSE French" },
     { value: "alevel-french", label: "A-Level French" },
+    { value: "common-entrance-french", label: "Common Entrance French" },
     { value: "gcse-german", label: "GCSE German" },
-    { value: "alevel-german", label: "A-Level German" }
+    { value: "alevel-german", label: "A-Level German" },
+    { value: "common-entrance-german", label: "Common Entrance German" }
   ];
 
   const handleDateSelect = (date: Date | undefined) => {
@@ -84,32 +89,37 @@ const Booking = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 bg-gray-50">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen pt-24 bg-gradient-to-br from-red-50 via-white to-black/5 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-red-100/20 via-white/30 to-black/10 animate-pulse"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-bounce"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-black/5 rounded-full blur-3xl animate-pulse"></div>
+
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Book Your Lesson</h1>
-            <p className="text-xl text-gray-600">
-              Schedule your French or German tutoring session with Ms. Anna Witherow
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 via-black to-red-800 bg-clip-text text-transparent mb-4 animate-fade-in">Book Your Lesson</h1>
+            <p className="text-xl text-gray-600 animate-fade-in">
+              Schedule your English, French or German tutoring session with Ms. Anna Witherow
             </p>
-            <div className="mt-6 bg-yellow-100 border border-yellow-300 rounded-lg p-4 inline-block">
-              <p className="text-yellow-800 font-semibold">£50 per hour • Available 8 AM - 6 PM</p>
+            <div className="mt-6 bg-gradient-to-r from-yellow-100 via-yellow-200 to-yellow-100 border border-yellow-300 rounded-lg p-4 inline-block shadow-lg backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+              <p className="bg-gradient-to-r from-yellow-800 via-yellow-900 to-yellow-800 bg-clip-text text-transparent font-semibold">£50 per hour • Available 8 AM - 6 PM</p>
             </div>
           </div>
 
           {/* Progress Indicator */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center space-x-4">
-              <div className={`flex items-center justify-center w-8 h-8 rounded-full ${step >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
+              <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${step >= 1 ? 'bg-gradient-to-r from-red-600 to-black text-white shadow-lg' : 'bg-gray-300'}`}>
                 1
               </div>
-              <div className={`w-12 h-1 ${step >= 2 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-              <div className={`flex items-center justify-center w-8 h-8 rounded-full ${step >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
+              <div className={`w-12 h-1 transition-all duration-500 ${step >= 2 ? 'bg-gradient-to-r from-red-600 to-black' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${step >= 2 ? 'bg-gradient-to-r from-red-600 to-black text-white shadow-lg' : 'bg-gray-300'}`}>
                 2
               </div>
-              <div className={`w-12 h-1 ${step >= 3 ? 'bg-blue-600' : 'bg-gray-300'}`}></div>
-              <div className={`flex items-center justify-center w-8 h-8 rounded-full ${step >= 3 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
+              <div className={`w-12 h-1 transition-all duration-500 ${step >= 3 ? 'bg-gradient-to-r from-red-600 to-black' : 'bg-gray-300'}`}></div>
+              <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${step >= 3 ? 'bg-gradient-to-r from-red-600 to-black text-white shadow-lg' : 'bg-gray-300'}`}>
                 3
               </div>
             </div>
@@ -117,10 +127,10 @@ const Booking = () => {
 
           {/* Step 1: Date, Time, and Subject Selection */}
           {step === 1 && (
-            <Card className="shadow-lg">
+            <Card className="shadow-2xl bg-gradient-to-br from-white via-red-50/30 to-black/5 backdrop-blur-xl border border-white/20 hover:shadow-red-500/20 transition-all duration-500 animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-2xl text-blue-900 flex items-center">
-                  <CalendarDays className="h-6 w-6 mr-3" />
+                <CardTitle className="text-2xl bg-gradient-to-r from-red-700 via-black to-red-900 bg-clip-text text-transparent flex items-center">
+                  <CalendarDays className="h-6 w-6 mr-3 text-red-600" />
                   Select Date, Time & Subject
                 </CardTitle>
               </CardHeader>
@@ -128,26 +138,29 @@ const Booking = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Calendar */}
                   <div>
-                    <Label className="text-lg font-semibold mb-4 block">Choose Date</Label>
+                    <Label className="text-lg font-semibold mb-4 block bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent">Choose Date</Label>
                     <Calendar
                       mode="single"
                       selected={selectedDate}
                       onSelect={handleDateSelect}
                       disabled={(date) => date < new Date() || date.getDay() === 0} // Disable past dates and Sundays
-                      className="rounded-md border"
+                      className="rounded-md border border-red-200/50 shadow-lg bg-gradient-to-br from-white to-red-50/20 backdrop-blur-sm"
                     />
                   </div>
 
                   {/* Time and Subject */}
                   <div className="space-y-6">
                     <div>
-                      <Label className="text-lg font-semibold mb-3 block">Available Times</Label>
+                      <Label className="text-lg font-semibold mb-3 block bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent">Available Times</Label>
                       <div className="grid grid-cols-3 gap-2">
                         {timeSlots.map((time) => (
                           <Button
                             key={time}
                             variant={selectedTime === time ? "default" : "outline"}
-                            className="h-12"
+                            className={`h-12 transition-all duration-300 ${selectedTime === time 
+                              ? 'bg-gradient-to-r from-red-600 to-black text-white shadow-lg hover:shadow-red-500/50 transform scale-105' 
+                              : 'hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 hover:border-red-300 hover:scale-105'
+                            }`}
                             onClick={() => setSelectedTime(time)}
                           >
                             {time}
@@ -157,14 +170,14 @@ const Booking = () => {
                     </div>
 
                     <div>
-                      <Label className="text-lg font-semibold mb-3 block">Subject</Label>
+                      <Label className="text-lg font-semibold mb-3 block bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent">Subject</Label>
                       <Select value={selectedSubject} onValueChange={setSelectedSubject}>
-                        <SelectTrigger className="h-12">
+                        <SelectTrigger className="h-12 bg-gradient-to-r from-white to-red-50/20 border-red-200/50 hover:border-red-300 transition-all duration-300">
                           <SelectValue placeholder="Select subject and level" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-gradient-to-br from-white to-red-50/20 backdrop-blur-xl border border-red-200/50">
                           {subjects.map((subject) => (
-                            <SelectItem key={subject.value} value={subject.value}>
+                            <SelectItem key={subject.value} value={subject.value} className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">
                               {subject.label}
                             </SelectItem>
                           ))}
@@ -175,8 +188,9 @@ const Booking = () => {
                 </div>
 
                 <div className="flex justify-end">
-                  <Button onClick={handleNext} className="bg-blue-900 hover:bg-blue-800 px-8">
-                    Next: Student Information
+                  <Button onClick={handleNext} className="relative bg-gradient-to-r from-red-600 via-black to-red-800 hover:from-red-700 hover:via-black hover:to-red-900 text-white px-8 shadow-lg hover:shadow-red-500/50 transition-all duration-500 transform hover:scale-105 backdrop-blur-xl border border-white/20 group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    <span className="relative z-10">Next: Student Information</span>
                   </Button>
                 </div>
               </CardContent>
@@ -185,17 +199,17 @@ const Booking = () => {
 
           {/* Step 2: Student Information */}
           {step === 2 && (
-            <Card className="shadow-lg">
+            <Card className="shadow-2xl bg-gradient-to-br from-white via-red-50/30 to-black/5 backdrop-blur-xl border border-white/20 hover:shadow-red-500/20 transition-all duration-500 animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-2xl text-blue-900 flex items-center">
-                  <Clock className="h-6 w-6 mr-3" />
+                <CardTitle className="text-2xl bg-gradient-to-r from-red-700 via-black to-red-900 bg-clip-text text-transparent flex items-center">
+                  <Clock className="h-6 w-6 mr-3 text-red-600" />
                   Student Information
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Booking Summary */}
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-blue-900 mb-2">Lesson Summary</h4>
+                <div className="bg-gradient-to-r from-red-50 via-white to-black/5 p-4 rounded-lg backdrop-blur-sm border border-red-100/50 shadow-inner">
+                  <h4 className="font-semibold bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent mb-2">Lesson Summary</h4>
                   <p><strong>Date:</strong> {selectedDate?.toDateString()}</p>
                   <p><strong>Time:</strong> {selectedTime}</p>
                   <p><strong>Subject:</strong> {subjects.find(s => s.value === selectedSubject)?.label}</p>
@@ -204,61 +218,64 @@ const Booking = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label htmlFor="student-name">Student Name *</Label>
+                    <Label htmlFor="student-name" className="bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent font-semibold">Student Name *</Label>
                     <Input
                       id="student-name"
                       value={studentInfo.name}
                       onChange={(e) => handleStudentInfoChange('name', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 bg-gradient-to-r from-white to-red-50/20 border-red-200/50 hover:border-red-300 focus:border-red-500 transition-all duration-300"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="student-email">Email Address *</Label>
+                    <Label htmlFor="student-email" className="bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent font-semibold">Email Address *</Label>
                     <Input
                       id="student-email"
                       type="email"
                       value={studentInfo.email}
                       onChange={(e) => handleStudentInfoChange('email', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 bg-gradient-to-r from-white to-red-50/20 border-red-200/50 hover:border-red-300 focus:border-red-500 transition-all duration-300"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="student-phone">Phone Number</Label>
+                    <Label htmlFor="student-phone" className="bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent font-semibold">Phone Number</Label>
                     <Input
                       id="student-phone"
                       value={studentInfo.phone}
                       onChange={(e) => handleStudentInfoChange('phone', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 bg-gradient-to-r from-white to-red-50/20 border-red-200/50 hover:border-red-300 focus:border-red-500 transition-all duration-300"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="current-level">Current Level *</Label>
+                    <Label htmlFor="current-level" className="bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent font-semibold">Current Level *</Label>
                     <Select value={studentInfo.level} onValueChange={(value) => handleStudentInfoChange('level', value)}>
-                      <SelectTrigger className="mt-1">
+                      <SelectTrigger className="mt-1 bg-gradient-to-r from-white to-red-50/20 border-red-200/50 hover:border-red-300 transition-all duration-300">
                         <SelectValue placeholder="Select current level" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="beginner">Beginner</SelectItem>
-                        <SelectItem value="intermediate">Intermediate</SelectItem>
-                        <SelectItem value="advanced">Advanced</SelectItem>
-                        <SelectItem value="year-10">Year 10 (GCSE)</SelectItem>
-                        <SelectItem value="year-11">Year 11 (GCSE)</SelectItem>
-                        <SelectItem value="year-12">Year 12 (A-Level)</SelectItem>
-                        <SelectItem value="year-13">Year 13 (A-Level)</SelectItem>
+                      <SelectContent className="bg-gradient-to-br from-white to-red-50/20 backdrop-blur-xl border border-red-200/50">
+                        <SelectItem value="beginner" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Beginner</SelectItem>
+                        <SelectItem value="intermediate" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Intermediate</SelectItem>
+                        <SelectItem value="advanced" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Advanced</SelectItem>
+                        <SelectItem value="year-10" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Year 10 (GCSE)</SelectItem>
+                        <SelectItem value="year-11" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Year 11 (GCSE)</SelectItem>
+                        <SelectItem value="year-12" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Year 12 (A-Level)</SelectItem>
+                        <SelectItem value="year-13" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">Year 13 (A-Level)</SelectItem>
+                        <SelectItem value="11-plus" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">11+ Common Entrance</SelectItem>
+                        <SelectItem value="13-plus" className="hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 transition-all duration-200">13+ Common Entrance</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
 
                 <div className="flex justify-between">
-                  <Button variant="outline" onClick={() => setStep(1)}>
+                  <Button variant="outline" onClick={() => setStep(1)} className="border-red-200 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 hover:border-red-300 transition-all duration-300">
                     Back
                   </Button>
-                  <Button onClick={handleNext} className="bg-blue-900 hover:bg-blue-800 px-8">
-                    Next: Payment
+                  <Button onClick={handleNext} className="relative bg-gradient-to-r from-red-600 via-black to-red-800 hover:from-red-700 hover:via-black hover:to-red-900 text-white px-8 shadow-lg hover:shadow-red-500/50 transition-all duration-500 transform hover:scale-105 backdrop-blur-xl border border-white/20 group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    <span className="relative z-10">Next: Payment</span>
                   </Button>
                 </div>
               </CardContent>
@@ -267,16 +284,16 @@ const Booking = () => {
 
           {/* Step 3: Payment */}
           {step === 3 && (
-            <Card className="shadow-lg">
+            <Card className="shadow-2xl bg-gradient-to-br from-white via-red-50/30 to-black/5 backdrop-blur-xl border border-white/20 hover:shadow-red-500/20 transition-all duration-500 animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-2xl text-blue-900 flex items-center">
-                  <CreditCard className="h-6 w-6 mr-3" />
+                <CardTitle className="text-2xl bg-gradient-to-r from-red-700 via-black to-red-900 bg-clip-text text-transparent flex items-center">
+                  <CreditCard className="h-6 w-6 mr-3 text-red-600" />
                   Payment & Confirmation
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Final Summary */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-gradient-to-r from-gray-50 via-red-50/20 to-black/5 p-6 rounded-lg backdrop-blur-sm border border-red-100/50 shadow-inner">
                   <h4 className="font-semibold text-gray-900 mb-4">Booking Confirmation</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -291,12 +308,12 @@ const Booking = () => {
                     </div>
                   </div>
                   <div className="border-t pt-4 mt-4">
-                    <p className="text-2xl font-bold text-blue-900">Total: £50.00</p>
+                    <p className="text-2xl font-bold bg-gradient-to-r from-red-600 via-black to-red-800 bg-clip-text text-transparent">Total: £50.00</p>
                   </div>
                 </div>
 
                 {/* Payment Information */}
-                <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                <div className="bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-50 border border-yellow-200 p-4 rounded-lg backdrop-blur-sm shadow-inner">
                   <h4 className="font-semibold text-yellow-800 mb-2">Payment via PayPal</h4>
                   <p className="text-yellow-700 text-sm">
                     You will be redirected to PayPal to complete your payment securely. 
@@ -304,9 +321,9 @@ const Booking = () => {
                   </p>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
-                  <h4 className="font-semibold text-blue-800 mb-2">What happens next?</h4>
-                  <ul className="text-blue-700 text-sm space-y-1">
+                <div className="bg-gradient-to-r from-red-50 via-white to-black/5 border border-red-200 p-4 rounded-lg backdrop-blur-sm shadow-inner">
+                  <h4 className="font-semibold bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent mb-2">What happens next?</h4>
+                  <ul className="text-gray-700 text-sm space-y-1">
                     <li>• Instant booking confirmation email sent to you</li>
                     <li>• Ms. Witherow receives notification of your booking</li>
                     <li>• Calendar is automatically updated to prevent double booking</li>
@@ -315,14 +332,15 @@ const Booking = () => {
                 </div>
 
                 <div className="flex justify-between">
-                  <Button variant="outline" onClick={() => setStep(2)}>
+                  <Button variant="outline" onClick={() => setStep(2)} className="border-red-200 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 hover:border-red-300 transition-all duration-300">
                     Back
                   </Button>
                   <Button 
                     onClick={handlePayment} 
-                    className="bg-green-600 hover:bg-green-700 px-8 text-white"
+                    className="relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white px-8 shadow-2xl hover:shadow-green-500/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 backdrop-blur-xl border border-white/20 group overflow-hidden"
                   >
-                    Pay with PayPal - £50.00
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    <span className="relative z-10">Pay with PayPal - £50.00</span>
                   </Button>
                 </div>
               </CardContent>
