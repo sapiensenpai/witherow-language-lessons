@@ -9,11 +9,11 @@ export const CTASection = () => {
     <section className="py-20 bg-blue-900 text-white">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-6">
-          Ready to Excel in French & German?
+          Ready to Excel in English, French & German?
         </h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Join the many students who have achieved outstanding results with Ms. Witherow's expert tutoring. 
-          Book your first lesson today and start your journey to language mastery.
+          Book your first lesson today and start your journey to academic excellence.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 

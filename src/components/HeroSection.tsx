@@ -17,11 +17,11 @@ export const HeroSection = () => {
     >
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-          Expert French & German Tutoring<br />
+          Expert English, French & German Tutoring<br />
           <span className="text-yellow-300">for GCSE & A-Level Success</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
-          Achieve excellence with Ms. Anna Witherow - Head of Modern Foreign Languages with proven expertise in French and German education
+          Achieve excellence with Ms. Anna Witherow - Head of Modern Foreign Languages with proven expertise in English, French and German education
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 

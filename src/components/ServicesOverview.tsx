@@ -8,6 +8,16 @@ export const ServicesOverview = () => {
 
   const services = [
     {
+      title: "GCSE English",
+      description: "Comprehensive preparation for GCSE English Language and Literature examinations with focus on analysis, writing, and comprehension skills.",
+      features: ["Text analysis training", "Creative writing", "Essay structure", "Exam technique"]
+    },
+    {
+      title: "A-Level English",
+      description: "Advanced English tutoring covering literature analysis, critical thinking, and sophisticated writing skills for A-Level success.",
+      features: ["Literary criticism", "Advanced analysis", "Essay writing", "Comparative studies"]
+    },
+    {
       title: "GCSE French",
       description: "Comprehensive preparation for GCSE French examinations with focus on speaking, listening, reading, and writing skills.",
       features: ["Exam technique training", "Past paper practice", "Oral exam preparation", "Grammar foundations"]
@@ -34,14 +44,14 @@ export const ServicesOverview = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Language Tutoring Services
+            Language & English Tutoring Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional French and German tutoring for GCSE and A-Level students - £50 per hour
+            Professional English, French and German tutoring for GCSE and A-Level students - £50 per hour
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <div className="relative h-48 overflow-hidden rounded-t-lg">
